@@ -7,6 +7,8 @@
 
 ## Overview
 
+This project aims to create a template for invitations apps.
+
 ## Getting Started
 
 First step, install dependencies
