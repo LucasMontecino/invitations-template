@@ -1,42 +1,172 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-bellefair: 'Bellefair', serif;
+  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+  --font-barlow: 'Barlow', sans-serif;
+}
+
+/* ----------------- */
+/* Custom properties */
+/* ----------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* colors */
+  --clr-dark: 33 37 41;
+  --clr-light: 228, 196, 161;
+  --clr-white: 255, 255, 255;
+  --clr-brown: 178 126 73;
+
+  /* font-sizes */
+  --fs-900: 9.375rem;
+  --fs-800: 6.25rem;
+  --fs-700: 3.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font-families */
+  --ff-serif: 'Bellefair', serif;
+  --ff-sans-cond: 'Barlow Condensed', sans-serif;
+  --ff-sans-normal: 'Barlow', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ---------------- */
+/* Reset            */
+/* ---------------- */
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+/* Box sizing */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Accessible line-height */
+
+body {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  background-color: rgb(var(--clr-light));
+  color: rgb(var(--clr-white));
+  line-height: 1.5;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Improve media defaults */
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
+
+/* ---------------- */
+/* Utility classes  */
+/* ---------------- */
+
+/* general */
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+/* typography */
+
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+.ff-sans-cond {
+  font-family: var(--ff-sans-cond);
+}
+.ff-sans-normal {
+  font-family: var(--ff-sans-normal);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+
+/* .primary-btn {
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: rgba(var(--clr-brown));
+  color: rgb(var(--clr-white));
+  border: none;
+  text-transform: capitalize;
+  padding: 0.5em 1.2em;
+  transition: background-color 300ms ease-in-out, color 500ms ease;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+  background-color: rgb(var(--clr-white));
+  color: rgb(var(--clr-brown));
+} */
